@@ -8,19 +8,14 @@ use ark_ff::{BigInteger, PrimeField};
 use ark_serialize::{CanonicalDeserialize, CanonicalSerialize};
 use std::ops::{Add, AddAssign, Mul, Neg, Sub};
 
-/// A multilinear polynomial over a field.
 #[derive(Clone, PartialEq, Eq, Hash, Default, Debug, CanonicalSerialize, CanonicalDeserialize)]
 pub struct Multilinear<F: PrimeField> {
-    /// The number of variables in the polynomial.
     pub num_vars: usize,
-    /// The evaluations of the polynomial at the different points.
     pub evaluations: Vec<F>,
 }
 
 impl<F: PrimeField> Multilinear<F> {
-    /// This function creates a new multilinear polynomial from a list of evaluations
     pub fn new(evaluations: Vec<F>, num_vars: usize) -> Self {
-        // SANITY_CHECK: Ensure that the number of evaluations is equal to the number of variables raised to power of 2
         assert_eq!(
             evaluations.len(),
             1 << num_vars,
