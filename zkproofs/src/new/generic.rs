@@ -172,17 +172,22 @@ fn vec_even(num: Vec<u32>) -> Vec<u32> {
     }
     even 
     }
-
+  //---hashmaps----
     use std::collections::HashMap;
 
-    fn vec_hash(tuple: Vec(<String>, <u32>)) -> Hashmaps<String, u32> {
+    fn vec_hash(tuple: Vec<(String, u32)>) -> Hashmaps<String, u32> {
         let mut map = HashMap::new();
-        for (key,vaule)
+        for (key,vaule) in &tuple.len() {
+            map.insert(k: key, v: vaule);
+        }
+        hm
     }
 
     fn main() {
         let even = vec_even([1,2,3,4,5]);
         println!("{:?}", even);
+
+        vec_hash((String::from("zk", 10)), String::from("rust", 8) )
     }
 
     return even;
@@ -197,4 +202,15 @@ fn vec_even(num: Vec<u32>) -> Vec<u32> {
             i += 1;
         }
     }
+
+    fn odd_num(num: Vec<u32>) -> Vec<u32> {
+        // iter::repeat(num).take(5).collect()
+        let i =num.iter();
+
+        let odd  = i.filter(|x| *x % 2 == 0).map(|x| x * 2).collect();
+        // {
+        
+        // }.collect();
+        //  odd
+        }
 
