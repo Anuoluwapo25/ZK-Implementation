@@ -102,7 +102,6 @@ pub fn vec_hash(pairs: Vec<(String, u32)>) -> HashMap<String, u32> {
     pairs.into_iter().collect()
 }
 
-use std::collections::HashMap;
 use std::collections::hash_map::Entry;
 
 // =============================================
@@ -322,110 +321,110 @@ fn main() {
 }
 
 
-// struct LruCache<K, V> {
-//     pack: HashMap<K, V>,
-//     order: VecDeque<K>
-// }
+struct LruCache<K, V> {
+    pack: HashMap<K, V>,
+    order: VecDeque<K>
+}
 
-// impl LruCache<K,V> {
-//     fn new(capacity: usize) -> Self {
-//         LruCache {
-//             pack: HashMap::new(),
-//             order: VecDeque::new()
-//         }
+impl LruCache<K,V> {
+    fn new(capacity: usize) -> Self {
+        LruCache {
+            pack: HashMap::new(),
+            order: VecDeque::new()
+        }
 
-//     }
-//     fn get_or_compute<'a, F>(&mut self, key: K, f: F) -> V {
-
-
-// }
-// }
+    }
+    fn get_or_compute<'a, F>(&mut self, key: K, f: F) -> V {
 
 
-// fn word_frequencies(text: &str) -> HashMap<String, usize> {
-//     let mut freq = HashMap::new();
-//     for word in text.split_whitespace() {
-//         *freq.entry(word.to_string()).or_insert(0).into_iter().filter(|(_, &count)| count > 1)
-//     }
-// }
+}
+}
 
-// trait Summable {
-//     fn sum(&self) -> T;
 
-// }
-// struct Add<T> {
-//     a: T,
-//     b: T,
-// }
-// impl Summable for Add {
-//     fn sum(&self) -> T {
-//         self.a + self.b
-//     }
-// }
+fn word_frequencies(text: &str) -> HashMap<String, usize> {
+    let mut freq = HashMap::new();
+    for word in text.split_whitespace() {
+        *freq.entry(word.to_string()).or_insert(0).into_iter().filter(|(_, &count)| count > 1)
+    }
+}
 
-// struct Cache(K, V) {
-//     store: HashMap<K,V>,
-// }
+trait Summable {
+    fn sum(&self) -> T;
 
-// impl Cache { 
-//     fn new() -> Self {
-//         Cache {
-//             store: HashMap::new(),
-//         }
-//     }
-//     fn get_or_insert_with(&mut self, key: K, f: impl FnOnce() -> V) -> V {
-//         self.store.get_or_insert_with(key, || f())
-//     }
-// }
-// use std::collections::HashMap;
+}
+struct Add<T> {
+    a: T,
+    b: T,
+}
+impl Summable for Add {
+    fn sum(&self) -> T {
+        self.a + self.b
+    }
+}
 
-// fn main() {
-//     let mut scores: HashMap<&str, i32> = HashMap::new();
-//     scores.insert("Alice", 10);
-//     let alice_score = &scores.get("Alice"); // immutable borrow
-//     scores.insert("Bob", 20);              // mutable borrow here
-//     println!("{:?}", alice_score);
-// }
+struct Cache(K, V) {
+    store: HashMap<K,V>,
+}
 
-// fn main() {
-//     let s1 = String::from("hello");
-//     let s2 = String::from("world");
-//     let result = longest_str(&s1, &s2); // your longest function
-//     println!("{}", result);
-//     // imagine more code that tries to use s1 or s2 here
-// }
+impl Cache { 
+    fn new() -> Self {
+        Cache {
+            store: HashMap::new(),
+        }
+    }
+    fn get_or_insert_with(&mut self, key: K, f: impl FnOnce() -> V) -> V {
+        self.store.get_or_insert_with(key, || f())
+    }
+}
+use std::collections::HashMap;
 
-// fn longest(x: 'a string, y: 'a &str) -> &'a str { 
-//    let longest = if x.len() > y.len() { x } else { y };
+fn main() {
+    let mut scores: HashMap<&str, i32> = HashMap::new();
+    scores.insert("Alice", 10);
+    let alice_score = &scores.get("Alice"); // immutable borrow
+    scores.insert("Bob", 20);              // mutable borrow here
+    println!("{:?}", alice_score);
+}
+
+fn main() {
+    let s1 = String::from("hello");
+    let s2 = String::from("world");
+    let result = longest_str(&s1, &s2); // your longest function
+    println!("{}", result);
+    // imagine more code that tries to use s1 or s2 here
+}
+
+fn longest(x: 'a string, y: 'a &str) -> &'a str { 
+   let longest = if x.len() > y.len() { x } else { y };
    
-//    longest
+   longest
 
-// }
+}
 
-// fn nOnce(string: &str) -> String {
-//     println({}, string);
-// }
+fn nOnce(string: &str) -> String {
+    println({}, string);
+}
 
-// fn mUt(vec: &mut Vec<i32>) -> i32 {
-//     vec = Vec::new();
-//     vec.push(42):
-// }
+fn mUt(vec: &mut Vec<i32>) -> i32 {
+    vec = Vec::new();
+    vec.push(42):
+}
 
-// fn strinngs(str: &str) -> i32 {
-//     str.len()
-// }
-// #[derive(Debug)]
+fn strinngs(str: &str) -> i32 {
+    str.len()
+}
+#[derive(Debug)]
 
-// struct User {
-//     name: String,
-//     age: u8,
-// }
-// impl User {
-//     fn log(&self) {
-//         println("{}, {}", self.name, self.age);    }
-// }
+struct User {
+    name: String,
+    age: u8,
+}
+impl User {
+    fn log(&self) {
+        println("{}, {}", self.name, self.age);    }
+}
 
-// define_logger!(User; name: String, age: u8);
-// let u: User = User { name: "Bob".into(), age: 30 };
+define_logger!(User; name: String, age: u8);
+let u: User = User { name: "Bob".into(), age: 30 };
 
-// u.log();
+u.log();
